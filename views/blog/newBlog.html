@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/ueditor/themes/default/css/ueditor.css" />
+		<script src="/js/utils/jquery-1.8.3.min.js"></script>
+		<script src="/js/common.js"></script>
+		<script src="/js/utils/myAjax.js"></script>
+		<script src="/ueditor/ueditor.config.js"></script>
+		<script src="/ueditor/ueditor.all.min.js"></script>
+		<script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+		<script src="/js/blog/newBlog.js"></script>
+	</head>
+	<body>
+		<nav class="g-admin-head clearfix">
+			<ul>
+				<li class="first"><span>YY</span></li>
+				<li class="second"><span></span>HY</li>
+				<li class="third z-active"><span>Blog</span></li>
+				<li class="forth"><span>Photo</span></li>
+			</ul>
+			<div class="u-search clearfix">
+				<input class="u-input-nbor" placeholder="我是搜索" type="text" />
+				<div class="u-icon-search f-fr">
+					<i class="u-search-btn"></i>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="g-admin-body clearfix">
+			<div class="m-admin-main">
+				<ul class="m-new-blog">
+					<li>
+						<span>标题</span>
+						<input type="text" id="J_blog_title" />
+					</li>
+					<li>
+						<span>正文</span>
+						<div class="u-ueditor">
+							<script id="editor" type="text/plain" style="width:700px;height:500px;" name='content'></script>
+							<script type="text/javascript">
+								//实例化编辑器
+								//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+								var ue = UE.getEditor('editor');
+							</script>
+						</div>
+					</li>
+					<li>
+						<span>分类</span>
+						<div class="u-select">
+							<div class="u-select-input" id="J_select">
+								<input type="text" readonly="readonly" />
+								<em></em>
+							</div>
+							<div class="u-select-drop">
+								<ul>
+									<li>PHP</li>
+									<li>CSS</li>
+									<li>jQuery</li>
+									<li id="J_addType">+添加分类</li>
+								</ul>
+							</div>
+						</div>
+					</li>
+					<li>
+						<span>标签</span>
+						<div class="m-label-cont">
+							<div class="m-label-input">
+								<input type="text" id="J_label_input" />
+							</div>
+							<dl class="m-label-useful">
+								<dt>常用标签</dt>
+								<dd>
+									<a class="J_tag">生活</a>
+									<a class="J_tag">HTML</a>
+									<a class="J_tag">技术</a>
+									<a class="J_tag">前端</a>
+									<a class="J_tag">后台</a>
+									<a class="J_tag">PHP</a>
+									<a class="J_tag">Java</a>
+									<a class="J_tag">生活</a>
+									<a class="J_tag">HTML</a>
+									<a class="J_tag">技术</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<span>权限</span>
+						<div class="m-authority">
+							<ul>
+								<li id="J_auth_comment">
+									<span class="clearfix">允许评论</span>
+									<em></em>
+								</li>
+								<li id="J_auth_private">
+									<span class="clearfix">仅自己可见</span>
+									<em></em>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="m-pop-mask"></div>
+		<div class="m-pop m-addtype">
+			<div class="m-pop-title clearfix">
+				<span>添加分类</span>
+				<em class="u-pop-close"></em>
+			</div>
+			<div class="m-pop-body">
+				<input type="text" />
+				<div class="u-btn bg-blue">确认添加</div>
+			</div>
+		</div>
+		<div class="u-btn bg-blue" id="publish">发表</div>
+		
+	</body>
+</html>

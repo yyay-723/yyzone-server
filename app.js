@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var blogs = require('./routes/blogs');
+var ueditor = require("ueditor");
 
 var app = express();
 
@@ -21,6 +22,35 @@ app.engine('.html', require('ejs').__express);
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+//百度编辑器配置
+app.use(bodyParser.urlencoded({
+	extended: true //使用了百度编辑器，设为true
+}));
+app.use(bodyParser.json()); //和上面调整顺序
+app.use("/ueditor/ue", ueditor(path.join(__dirname, 'public'), function(req, res, next) {
+	// ueditor 客户发起上传图片请求
+	if (req.query.action === 'uploadimage') {
+		var foo = req.ueditor;
+		var date = new Date();
+		var imgname = req.ueditor.filename;
+
+		var img_url = '/img/ueditor/';
+		res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
+	}
+	//  客户端发起图片列表请求
+	else if (req.query.action === 'listimage') {
+		var dir_url = '/img/ueditor/';
+		res.ue_list(dir_url); // 客户端会列出 dir_url 目录下的所有图片
+	}
+	// 客户端发起其它请求
+	else {
+ 
+		res.setHeader('Content-Type', 'application/json');
+		//res.redirect('/ueditor/ueditor.config.json')
+		//这里填写 ueditor.config.json 这个文件的路径
+		res.redirect('/ueditor/nodejs/config.json')
+	}
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
