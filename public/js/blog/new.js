@@ -87,7 +87,7 @@ globalObj = $.extend(globalObj, {
 		
 		//发表
 		$("#publish").click(function(){
-			var url = "/blogs/newBlog";
+			var url = "/blogs/new";
 			var title = $("#J_blog_title").val();
 			var content = UE.getEditor('editor').getContent();
 			var isComment = $("#J_auth_comment").hasClass("z-active");
@@ -128,6 +128,7 @@ globalObj = $.extend(globalObj, {
 		ajaxUtil.ajax(url, data, function(data){
 			if(data.state == 1){
 				alert("创建博客成功");
+				window.location.href="/blogs/list";
 			}else{
 				alert("创建失败")
 			}

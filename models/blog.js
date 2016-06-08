@@ -14,6 +14,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        Blog.belongsTo(models.User,{foreignKey:'user_id'});
+        Blog.belongsTo(models.BlogCategory,{foreignKey:'category_id'});
       }
     },
     'paranoid': true,

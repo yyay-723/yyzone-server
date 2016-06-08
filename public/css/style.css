@@ -317,7 +317,47 @@ aside.m-admin-nav ul li.forth {
   margin-top: -3px;
   margin-left: 5px;
   background: url(../img/project/icon-lock.png);
+  background-size: 100% 100%;
   vertical-align: middle;
+}
+
+.m-page-nav {
+  padding: 60px 0 15px;
+  text-align: center;
+}
+
+.m-page-nav ul li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 2px;
+  color: #666;
+  background-color: #fffeab;
+  border: 1px solid #f1ef23;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.m-page-nav ul li:hover {
+  background-color: #b1daff;
+  border-color: #1a93ff;
+}
+
+.m-page-nav ul li.ellipsis {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.m-page-nav ul li.ellipsis a {
+  cursor: text;
+}
+
+.m-page-nav ul li a {
+  display: inline-block;
+  height: 30px;
+  padding: 0 15px;
 }
 
 .logo {
@@ -801,7 +841,7 @@ aside.m-admin-nav ul li.forth {
 
 .m-authority ul li:hover em,
 .m-authority ul li.z-active em {
-  background: url(../img/project/icon-check.png) center center no-repeat;
+  background: url(../../build/img/project/icon-check.png) center center no-repeat;
   background-size: 60% 60%;
 }
 
@@ -882,7 +922,7 @@ aside.m-admin-nav ul li.forth {
   margin-left: 5px;
   padding: 3px 5px;
   font-size: 12px;
-  color: #333;
+  color: #ccc;
   background-color: #007ca6;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -896,12 +936,27 @@ aside.m-admin-nav ul li.forth {
   margin-top: -3px;
   margin-left: 5px;
   vertical-align: middle;
-  background: url(../img/project/tag-del.png) no-repeat;
+  background: url(../../build/img/project/tag-del.png) no-repeat;
   background-position: left top;
 }
 
 .m-label-1 em:hover {
   background-position: left -12px;
+}
+
+.u-blog-title {
+  padding: 10px 0;
+  font-size: 24px;
+  color: #b1daff;
+}
+
+.u-blog-author {
+  padding: 10px 0;
+}
+
+.u-blog-time,
+.u-blog-author {
+  color: #fffeab;
 }
 
 /*# sourceMappingURL=style.css.map */
